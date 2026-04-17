@@ -47,15 +47,11 @@ Voir le contenu
   <p id="result"></p>
 </div>
 
-<script>
-function checkPin() {
-  var pin = document.getElementById("pin").value;
+<button onclick="goToSecretPage()">Accéder</button>
 
-  if(pin === "3289") {
-    window.location.href = "success.html";
-  } else {
-    document.getElementById("result").innerHTML = "❌ Code incorrect";
-  }
+<script>
+function goToSecretPage() {
+  window.location.href = "secret.html";
 }
 </script>
 
