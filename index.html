@@ -1,29 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <title>Accès sécurisé</title>
+
 <style>
 body {
-  font-family: Arial;
+  font-family: Arial, sans-serif;
   text-align: center;
   margin-top: 80px;
   background: #0f172a;
   color: white;
 }
+
 .box {
   background: #1e293b;
   padding: 30px;
   border-radius: 20px;
   display: inline-block;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
+
 input {
   padding: 12px;
   font-size: 18px;
   border-radius: 10px;
   border: none;
+  outline: none;
+  width: 200px;
+  text-align: center;
 }
+
 button {
+  margin-top: 15px;
   padding: 12px 20px;
   font-size: 18px;
   border-radius: 10px;
@@ -31,27 +40,44 @@ button {
   background: #22c55e;
   color: white;
   cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #16a34a;
+}
+
+#result {
+  margin-top: 15px;
+  color: #f87171;
 }
 </style>
+
 </head>
 
 <body>
 
 <div class="box">
-  <h2>🔒 Entrez le code PIN</h2>
+  <h2>🔒 Accès sécurisé</h2>
+
   <input type="password" id="pin" placeholder="Code PIN">
-  <br><br>
-  <button onclick="window.location.href='success.html'">
-Voir le contenu
-</button>
+
+  <br>
+
+  <button onclick="checkPin()">Valider</button>
+
   <p id="result"></p>
 </div>
 
-<button onclick="goToSecretPage()">Accéder</button>
-
 <script>
-function goToSecretPage() {
-  window.location.href = "secret.html";
+function checkPin() {
+  var pin = document.getElementById("pin").value;
+
+  if (pin === "3289") {
+    window.location.href = "success.html";
+  } else {
+    document.getElementById("result").innerText = "Code incorrect";
+  }
 }
 </script>
 
